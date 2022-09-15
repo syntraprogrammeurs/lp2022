@@ -7,3 +7,22 @@
  *
  * for loop!
  * **/
+let teRadenGetal = Number(prompt("Te raden getal?"));
+var raadGetal =Number(prompt("Geef een getal in?"));
+let counter = 0;
+for(let teller=1;teller > 0;teller++){
+    if(raadGetal < teRadenGetal){
+        console.log("getal is groter");
+        counter++;
+        raadGetal =Number(prompt("Geef een getal in?"));
+    }else if(raadGetal > teRadenGetal){
+        console.log("getal is kleiner");
+        counter++;
+        raadGetal =Number(prompt("Geef een getal in?"));
+    }else{
+        counter++;
+        console.log("gevonden, het getal is", raadGetal, "en je hebt", counter, "geraden");
+        teller = -1;
+    }
+
+}
