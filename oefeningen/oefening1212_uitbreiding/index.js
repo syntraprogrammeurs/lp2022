@@ -16,14 +16,12 @@
  * De deling van beide getallen doen we in één beweging dmv de AND (&&) operator te gebruiken
  * binnen het if statement.
  * **/
-
+let getal = []
 let hoeveelGetallen = Number(prompt("Hoeveel getallen wens je in te geven?"))
 for(let i=1;1 <=hoeveelGetallen;i++){
-
-   eval('let'+ getal + i)
+    let getal = Number(prompt("Geef getal ",i," :"))
 }
-let eersteGetal = Number(prompt('Geef eerste getal in'));
-let tweedeGetal = Number(prompt('Geef tweede getal in'));
+
 let grootsteGemeneDeler;
 
 for(let x=1;x<=eersteGetal;x++){
