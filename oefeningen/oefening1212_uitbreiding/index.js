@@ -7,26 +7,34 @@
  o Grootste gemene deler is 15
  o Weergave op het scherm:
  o De grootste gemene deler van 105 en 75 is: 15
+
+ uitbreiding : we proberen meer dan 1 getal in te geven en deze te testen op de grootste gemene deler
+
+ Let op: dit is een oefening met een ARRAY en functies.  In de basiscursus leren programmeren dien je deze NIET
+ te kennen. Dit is enkel een oefening op vraag van een cursist
  */
 
-/**STAP
- * We schrijven een for loop die beide getallen door de teller x zal doorlopen
- * De teller start natuurlijk bij 1. Wanneer de REST van de deling 0 is voor BEIDE getallen
- * dan is het resultaat op dat moment de grootste gemene deler van beide getallen.
- * De deling van beide getallen doen we in één beweging dmv de AND (&&) operator te gebruiken
- * binnen het if statement.
- * **/
-let getal = []
-let hoeveelGetallen = Number(prompt("Hoeveel getallen wens je in te geven?"))
-for(let i=1;1 <=hoeveelGetallen;i++){
-    let getal = Number(prompt("Geef getal ",i," :"))
+// Function ggd van twee getallen
+function ggd(a, b) {
+    if (a == 0)
+        return b;
+    return ggd(b % a, a);
 }
 
-let grootsteGemeneDeler;
+// Function vind de grootste gemene deler
+function vindGGD(arr, n) {
+    let resultaat = arr[0];
+    for (let i = 1; i < n; i++) {
+        resultaat = ggd(arr[i], resultaat);
 
-for(let x=1;x<=eersteGetal;x++){
-    if(eersteGetal%x === 0 && tweedeGetal%x === 0){
-        grootsteGemeneDeler = x;
+        if (resultaat == 1) {
+            return 1;
+        }
     }
+    return resultaat;
 }
-console.log(grootsteGemeneDeler);
+
+// Programma
+let arr = [2, 4, 6, 8, 16];
+let n = arr.length;
+console.log(vindGGD(arr, n));
