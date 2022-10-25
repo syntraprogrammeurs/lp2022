@@ -21,7 +21,7 @@ function addElement(){
 }*/
 
 /*4*/
-document.write("Hallo iedereen");
+/*document.write("Hallo iedereen");
 document.write("klaar");
 
 document.writeln("Hallo iedereen");
@@ -29,7 +29,23 @@ document.writeln("klaar");
 
 document.write("\t\tHallo\nworld\n");
 document.writeln("\"Hallo iedereen welkom. \"\n");
-document.writeln('Smiley face:\&#128153;\n');
+document.writeln('Smiley face:\&#128153;\n');*/
+
+/*let alleBMW = document.getElementsByClassName("bmw");*/
+let alleBMW = document.querySelectorAll('.bmw');
+/*let result = document.getElementById("resultArea");*/
+let result = document.querySelector('#resultArea');
+
+
+
+document.getElementById("resultArea").style.color = "blue";
+document.getElementById("resultArea").style.fontfamily = "Arial";
+document.getElementById("resultArea").style.fontSize = "larger";
+
+
+for(let auto of alleBMW){
+    result.innerHTML +=`${auto.textContent}\n`;
+}
 
 
 
