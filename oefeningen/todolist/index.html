@@ -2,84 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="./css/style.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" rel="stylesheet">
 
     <title>Todolist</title>
 </head>
 <body class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+<div id="myalert"></div>
 <div>
-
-        <form id="new_task_form" class="d-flex mt-3">
-            <input class="form-control me-1" type="text" id="new_task" name="new_task" placeholder="Create new Task"
-                   value="" required>
-            <button class="btn btn-success me-1" id="new_task_btn" type="submit">+</button>
-            <button class="btn btn-danger" id="clear" type="reset">CLEAR</button>
-        </form>
-        <hr>
-        <section id="tasklist"></section>
-
+    <form class="d-flex mt-3" id="new_task_form">
+        <input class="form-control me-1" id="new_task" name="new_task" placeholder="Create new Task" required
+               type="text" value="">
+        <button class="btn btn-success me-1" id="new_task_btn" type="submit">+</button>
+        <button class="btn btn-danger" id="clear" type="reset">CLEAR</button>
+    </form>
+    <hr>
+    <section id="tasklist"></section>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script>
-    /*variabelen declareren*/
-    let taskform = document.querySelector("#new_task_form");
-    let tasklist = document.querySelector("#tasklist");
-    let tasklistdelete = document.querySelector("#clear");
-    /*uitschakelen van de standaard gedraging van de button*/
-    taskform.addEventListener("submit",function(e){
-        e.preventDefault();
-        /*ophalen taak: de VOLLEDIGE tag met zijn inhoud*/
-        let newTaskInputValue = taskform.elements.new_task;
-        /* Enkel de inhoud, nl. ingetikte waarde door de gebruiker wordt
-        * overgedragen aan de functie addTask*/
-        addTask(newTaskInputValue.value);
-        /*clearen van input*/
-        newTaskInputValue.value = "";
-    });
-
-    /*Doel: overdragen van iedere taak aan de sectie tasklist*/
-    function addTask(newTask){
-        /* opbouw van de tag */
-        const div = document.createElement("div");
-        div.classList.add("mb-2","d-flex", "align-items-center");
-        const trash = document.createElement("button");
-        trash.classList.add("btn","btn-danger", "me-1");
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.classList.add("form-check-input","m-0");
-        const label = document.createElement("label");
-        label.classList.add("ms-2");
-        /* toevoegen van de waarden van de button en en de ingevulde taak van de gebruiker*/
-        trash.innerHTML = "DEL";
-        label.innerText = newTask;
-        /* in volgorde de elementen toevoegen*/
-        div.appendChild(trash);
-        div.appendChild(checkbox);
-        div.appendChild(label);
-        /* toevoegen van de volledige div tag aan de tasklist*/
-        tasklist.appendChild(div);
-
-        /*EVENT LISTENER aan DIV toevoegen*/
-        trash.addEventListener("click",function(){
-            div.remove();
-        });
-        /*taak werd uitgevoerd: doorstrepen*/
-        checkbox.addEventListener("click", function(){
-           if(checkbox.checked === true){
-               label.style.textDecoration = "line-through";
-           } else{
-               label.style.textDecoration = "none";
-           }
-        });
-    }
-    tasklistdelete.addEventListener("click", function(){
-       tasklist.innerHTML="";
-    });
+<script crossorigin="anonymous"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./index.js">
 
 </script>
 

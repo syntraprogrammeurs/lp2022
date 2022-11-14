@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    position:relative;
+    height:800px; /*hoogte foto!*/
+}
+.img{
+    position:absolute;
+    width:auto;
+    height:auto;
+    overflow:hidden;
+}
+.img img{
+    display:block;
+    vertical-align:middle;
+}
+.img-slider{
+    position:absolute;
+    z-index:10;
+    cursor:ew-resize;
+    /*weergave van de slider*/
+    width:40px;
+    height:40px;
+    background-color:red;
+    opacity:0.5;
+    border-radius:50%;
+}
